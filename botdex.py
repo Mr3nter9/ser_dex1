@@ -64,11 +64,9 @@ def TexTMsg(message):
     if idd == s or 'member' in req.text or 'creator' in req.text or 'administartor' in req.text:
         id = message.from_user.id
         date = B3KKK(id)
-        bot.send_message(message.chat.id,
-                                 text=f"You id is :{message.from_user.id}\nYou username is :@{message.from_user.username}\n{date}",
-                                 reply_to_message_id=message.id)
+        bot.reply_to(message,text=f"You id is :{message.from_user.id}\nYou username is :@{message.from_user.username}\n{date}")
     else:
-        bot.send_message(message.chat.id, "{} : @{}".format(me,ch))
+        bot.reply_to(message, "{} : @{}".format(me,ch))
 
 
 @bot.message_handler(commands=['user'])
@@ -84,11 +82,11 @@ def TexTMsg(message):
         p = requests.get(f"https://fragment.com/username/{user}").text
         sleep(1)
         if "On auction" in p or 'Available' in p:
-            bot.reply_to(message.chat.id, ' مرفوع مزاد✅ ')
+            bot.reply_to(message,' مرفوع مزاد✅ ')
         else:
-            bot.reply_to(message.chat.id, ' ما مرفوع مزاد❎ ')
+            bot.reply_to(message,' ما مرفوع مزاد❎ ')
     else:
-        bot.reply_to(message.chat.id, "{} : @{}".format(me, ch))
+        bot.reply_to(message,"{} : @{}".format(me, ch))
 
 
 
