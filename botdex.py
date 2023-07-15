@@ -1,4 +1,5 @@
 import telebot
+from pytube import  YouTube
 import requests
 from time import sleep
 import re
@@ -83,12 +84,11 @@ def TexTMsg(message):
         p = requests.get(f"https://fragment.com/username/{user}").text
         sleep(1)
         if "On auction" in p or 'Available' in p:
-            bot.send_message(message.chat.id, ' مرفوع مزاد✅ ')
+            bot.reply_to(message.chat.id, ' مرفوع مزاد✅ ')
         else:
-            bot.send_message(message.chat.id, ' ما مرفوع مزاد❎ ')
+            bot.reply_to(message.chat.id, ' ما مرفوع مزاد❎ ')
     else:
-        bot.send_message(message.chat.id, "{} : @{}".format(me, ch))
-
+        bot.reply_to(message.chat.id, "{} : @{}".format(me, ch))
 
 
 
